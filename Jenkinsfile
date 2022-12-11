@@ -25,5 +25,8 @@ pipeline{
         success{
             slackSend(message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Success after ${currentBuild.duration} ms (<${env.BUILD_URL}|Open>)")
         }
+        failure{
+            slackSend(message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Failure after ${currentBuild.duration} ms (<${env.BUILD_URL}|Open>)")
+        }
     }
 }
