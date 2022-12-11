@@ -4,6 +4,9 @@ pipeline{
             label 'linux && go'
         }
     }
+    triggers{
+        pollSCM("* * * * *")
+    }
     stages {
         stage('build'){
             steps{
