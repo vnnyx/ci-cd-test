@@ -12,12 +12,12 @@ pipeline{
         }
         stage('test'){
             steps{
-                echo "test ${env.BRANCH_NAME}"
+                echo "test ${env.JOB_NAME}"
             }
         }
         stage('deploy'){
             steps{
-                echo "deploy ${env.BRANCH_NAME}"
+                echo "deploy ${env.JOB_NAME}"
             }
         }
     }
