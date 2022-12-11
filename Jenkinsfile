@@ -26,10 +26,10 @@ pipeline{
     }
     post{
         success{
-            slackSend(color: "good", message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Success after ${currentBuild.duration} ms (<${env.BUILD_URL}|Open>)")
+            slackSend(color: "good", message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Success after ${currentBuild.duration/1000} sec (<${env.BUILD_URL}|Open>)")
         }
         failure{
-            slackSend(color:"danger", message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Failure after ${currentBuild.duration} ms (<${env.BUILD_URL}|Open>)")
+            slackSend(color: "danger", message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Failure after ${currentBuild.duration/1000} sec (<${env.BUILD_URL}|Open>)")
         }
     }
 }
