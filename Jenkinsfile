@@ -28,6 +28,9 @@ pipeline{
         }
     }
     post{
+        always{
+            cleanWs()
+        }
         success{
             slackSend(color: "good", message: "${env.JOB_NAME} - ${env.BUILD_DISPLAY_NAME} Success after ${currentBuild.durationString.replace(' and counting', '')} (<${env.BUILD_URL}|Open>)")
         }
